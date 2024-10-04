@@ -55,9 +55,3 @@ def dashboard():
 @login_required
 def music():
     return "Music"
-
-
-@main.route("/search")
-@login_required
-def search():
-    return "Search"
