@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-7">
+
+        <h1 class="pb-3">Hi!</h1>
+
+        <div class="p-5 border rounded border-5 border-info-subtle shadow">
+            <h1 class="h3 mb-3">Music for you</h1>
+            <p>Explore personalized recommendations based on your listening history and preferences!</p>
+            <a class="btn btn-info" href="{{ url_for('main.music') }}"><i class="bi bi-eye"></i> View</a>
+        </div>
+        
+<div class="mt-5 p-5 border rounded border-5 border-success-subtle shadow">
+    <h1 class="h3 mb-3">
+        Statistics
+    </h1>
+    <table class="table border-2 border-dark-subtle">
+        <tbody class="border-top border-top-2 border-dark-subtle">
+            <tr>
+                <td>
+                    Today 
+                </td>
+                <td class="text-end">
+                    <strong>123</strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    This month
+                </td>
+                <td class="text-end">
+                    <strong>123</strong>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+        </div>
+
+
+
+
+    </div>
+    
+</div>
+
+
+{% endblock %}
+

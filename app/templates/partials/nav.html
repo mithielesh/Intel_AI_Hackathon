@@ -1,0 +1,31 @@
+<header id="nav" class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <a href="{{ url_for('main.dashboard') }}"
+        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ff0097" class="bi bi-file-music-fill" viewBox="0 0 16 16">
+            <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2m-.5 4.11v1.8l-2.5.5v5.09c0 .495-.301.883-.662 1.123C7.974 12.866 7.499 13 7 13s-.974-.134-1.338-.377C5.302 12.383 5 11.995 5 11.5s.301-.883.662-1.123C6.026 10.134 6.501 10 7 10c.356 0 .7.068 1 .196V4.41a1 1 0 0 1 .804-.98l1.5-.3a1 1 0 0 1 1.196.98"/>
+          </svg>
+        <span class="fs-4">
+            {{ config["SITE_NAME"] }}
+        </span>
+    </a>
+
+    {% if current_user.is_authenticated %}
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link {{ 'active' if request.endpoint == 'main.dashboard' }}"
+                href="{{ url_for('main.dashboard') }}">Dashboard</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {{ 'active' if request.endpoint == 'main.music' }}"
+                href="{{ url_for('main.music') }}">Music</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {{ 'active' if request.endpoint == 'main.search' }}"
+                href="{{ url_for('main.search') }}">Search</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('main.logout') }}">Logout</a>
+        </li>
+    </ul>
+    {% endif %}
+</header>
