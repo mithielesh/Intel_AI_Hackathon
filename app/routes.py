@@ -3,6 +3,8 @@ from .forms import RegistrationForm, LoginForm, SearchForm
 from .models import User
 from flask_login import login_user, logout_user, login_required, current_user
 from . import db, bcrypt
+import multiprocessing
+import os
 
 main = Blueprint("main", __name__)
 
@@ -54,7 +56,7 @@ def dashboard():
 @main.route("/music")
 @login_required
 def music():
-    search = request.args.get("search")
-    search_form = SearchForm()
-    search_form.search.data = search
-    return render_template("music.html", title="Music", search_form=search_form)
+    # search = request.args.get("search")
+    # search_form = SearchForm()
+    # search_form.search.data = search
+    return render_template("music.html", title="Music")
