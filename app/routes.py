@@ -1,5 +1,5 @@
-from flask import Blueprint, render_template, redirect, url_for, flash
-from .forms import RegistrationForm, LoginForm
+from flask import Blueprint, render_template, redirect, url_for, flash, request
+from .forms import RegistrationForm, LoginForm, SearchForm
 from .models import User
 from flask_login import login_user, logout_user, login_required, current_user
 from . import db, bcrypt
@@ -48,10 +48,13 @@ def logout():
 @main.route("/")
 @login_required
 def dashboard():
-    return render_template("dashboard.html")
+    return render_template("dashboard.html", title="Dashboard")
 
 
 @main.route("/music")
 @login_required
 def music():
-    return "Music"
+    search = request.args.get("search")
+    search_form = SearchForm()
+    search_form.search.data = search
+    return render_template("music.html", title="Music", search_form=search_form)

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="text-center pb-3">
+    <form>
+        {{ search_form.search(placeholder="Search....", class="w-25 rounded border border-2 border-dark-subtle px-2 py-1") }}
+        {% if search_form.search.data %}
+            <a class="text-secondary" href="{{url_for('main.music')}}">Cancel</a>
+        {% endif %}
+    </form>
+</div>
+
+<table class="table table-bordered">
+    <thead class="table-secondary shadow-sm">
+        <tr>
+            <th scope="col">Song</th>
+            <th scope="col">Artist</th>
+            <th scope="col">Duration</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="align-middle">
+            <td>
+                Never gonna give you up
+            </td>
+            <td>
+                Rick Astley
+            </td>
+            <td>
+                3:34
+            </td>
+            <td>
+                <a class="btn btn-info btn-sm" href="#">
+                    <i class="bi bi-play-circle"></i> Play
+                </a>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="4">No results found.</td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}
+
